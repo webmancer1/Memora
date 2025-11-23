@@ -25,17 +25,6 @@ The project is built using **Kotlin** and **Jetpack Compose**.
 
 The application follows the recommended **Guide to App Architecture** (MVVM / Clean Architecture principles).
 
-### Directory Structure
-```
-com.example.memora
-├── ui/                 # UI Layer (Screens, Components, Theme)
-│   ├── LoginScreen.kt
-│   ├── RegisterScreen.kt
-│   └── theme/
-├── data/               # Data Layer (Repositories, Data Sources) [Planned]
-├── domain/             # Domain Layer (Use Cases, Models) [Planned]
-└── MainActivity.kt     # Entry point
-```
 
 ## 🚀 Getting Started
 
