@@ -1,10 +1,10 @@
 # Memora - Android Developer Documentation
 
-## 📱 Project Overview
+##  Project Overview
 
 **Memora** is a native Android application designed to simplify funeral management and planning. This repository contains the source code for the Android client, built with modern Android development practices.
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 The project is built using **Kotlin** and **Jetpack Compose**.
 
@@ -21,12 +21,12 @@ The project is built using **Kotlin** and **Jetpack Compose**.
 *   `androidx.navigation:navigation-compose`: Navigation for Compose
 *   `androidx.compose.material3`: Material Design 3 components
 
-## 🏗 Architecture
+##  Architecture
 
 The application follows the recommended **Guide to App Architecture** (MVVM / Clean Architecture principles).
 
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 *   **Android Studio:** Ladybug (2024.2.1) or newer recommended.
@@ -51,26 +51,24 @@ The application follows the recommended **Guide to App Architecture** (MVVM / Cl
     *   Connect a physical device or create an AVD (Android Virtual Device).
     *   Click the **Run** button (green play icon) or press `Shift + F10`.
 
-## 🧩 Feature Implementation Status
+##  Feature Implementation Status
 
 | Feature | Status | Notes |
 | :--- | :--- | :--- |
-| **User Accounts** | 🚧 In Progress | Login & Register screens created. Auth logic pending. |
-| **Dashboard** | 🔴 Pending | |
-| **Service Marketplace** | 🔴 Pending | |
-| **Budget Manager** | 🔴 Pending | |
-| **Ceremony Planning** | 🔴 Pending | |
-| **Guest Management** | 🔴 Pending | |
-| **Memorial Page** | 🔴 Pending | |
-| **Notifications** | 🔴 Pending | |
+| **User Accounts** |  In Progress | Login & Register screens created. Auth logic pending. |
+| **Dashboard** | Pending | |
+| **Service Marketplace** |  Pending | |
+| **Budget Manager** |  Pending | |
+| **Ceremony Planning** |  Pending | |
+| **Guest Management** |  Pending | |
+| **Memorial Page** |  Pending | |
+| **Notifications** |  Pending | |
 
-## 🤝 Contribution Guidelines
+##  Contribution Guidelines
 
 1.  **Code Style:** Follow the official [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html).
 2.  **Branching:** Use feature branches (e.g., `feature/login-auth`, `fix/crash-on-start`).
 3.  **Commits:** Write clear, descriptive commit messages.
 4.  **Testing:** Ensure new features are covered by unit tests where possible.
 
-## 📄 License
 
-[Add License Here]
