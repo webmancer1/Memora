@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.memora.ui.theme.MemoraTheme
+import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(
@@ -35,6 +36,10 @@ fun LoginScreen(
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val scope = androidx.compose.runtime.rememberCoroutineScope()
+    val googleAuthClient = remember { com.example.memora.auth.GoogleAuthClient(context) }
 
     Column(
         modifier = modifier
@@ -81,6 +86,38 @@ fun LoginScreen(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        androidx.compose.material3.OutlinedButton(
+            onClick = {
+                scope.launch {
+                    val result = googleAuthClient.signIn()
+                    if (result.data != null) {
+                        // Sign in successful
+                        // In a real app, you might want to navigate or show a success message
+                        android.widget.Toast.makeText(
+                            context,
+                            "Signed in as ${result.data.username}",
+                            android.widget.Toast.LENGTH_LONG
+                        ).show()
+                        onLoginClick() // Re-use login click to navigate or whatever the parent does
+                    } else {
+                        // Sign in failed
+                        if (result.errorMessage != null) {
+                             android.widget.Toast.makeText(
+                                context,
+                                "Sign in failed: ${result.errorMessage}",
+                                android.widget.Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Sign in with Google")
         }
 
         Spacer(modifier = Modifier.height(16.dp))
