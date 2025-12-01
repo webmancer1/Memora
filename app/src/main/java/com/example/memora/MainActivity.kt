@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.memora.ui.LoginScreen
 import com.example.memora.ui.RegisterScreen
+import com.example.memora.ui.HomeScreen
 import com.example.memora.ui.theme.MemoraTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,20 +26,31 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = "login",
+                        startDestination = "home", // Changed to home for testing
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable("login") {
                             LoginScreen(
-                                onLoginClick = { /* TODO: Handle login */ },
+                                onLoginClick = {
+                                    navController.navigate("home") {
+                                        popUpTo("login") { inclusive = true }
+                                    }
+                                },
                                 onRegisterClick = { navController.navigate("register") }
                             )
                         }
                         composable("register") {
                             RegisterScreen(
-                                onRegisterClick = { /* TODO: Handle register */ },
+                                onRegisterClick = {
+                                    navController.navigate("home") {
+                                        popUpTo("register") { inclusive = true }
+                                    }
+                                },
                                 onLoginClick = { navController.popBackStack() }
                             )
+                        }
+                        composable("home") {
+                            HomeScreen()
                         }
                     }
                 }
