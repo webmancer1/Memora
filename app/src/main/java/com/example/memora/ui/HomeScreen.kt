@@ -28,7 +28,8 @@ import kotlinx.coroutines.launch
 fun HomeScreen(
     onNavigateToTask: () -> Unit = {},
     onNavigateToBudget: () -> Unit = {},
-    onNavigateToGuests: () -> Unit = {}
+    onNavigateToGuests: () -> Unit = {},
+    onNavigateToDashboard: () -> Unit = {}
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -48,7 +49,12 @@ fun HomeScreen(
                 NavigationDrawerItem(
                     label = { Text(text = "Dashboard") },
                     selected = true,
-                    onClick = { scope.launch { drawerState.close() } },
+                    onClick = { 
+                        scope.launch { 
+                            drawerState.close() 
+                            onNavigateToDashboard()
+                        } 
+                    },
                     icon = { Icon(Icons.Filled.Home, contentDescription = null) },
                     modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
                 )

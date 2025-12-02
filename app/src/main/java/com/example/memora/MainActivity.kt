@@ -50,7 +50,14 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("home") {
-                            HomeScreen()
+                            HomeScreen(
+                                onNavigateToDashboard = {
+                                    navController.navigate("home") {
+                                        popUpTo("home") { inclusive = true }
+                                        launchSingleTop = true
+                                    }
+                                }
+                            )
                         }
                     }
                 }
