@@ -1,6 +1,7 @@
 package com.example.memora.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -8,14 +9,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,31 +21,128 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     onNavigateToTask: () -> Unit = {},
     onNavigateToBudget: () -> Unit = {},
     onNavigateToGuests: () -> Unit = {}
 ) {
-    Scaffold(
-        bottomBar = {
-            // Placeholder for Bottom Navigation if needed later
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            ModalDrawerSheet {
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    "Memora",
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                HorizontalDivider()
+                NavigationDrawerItem(
+                    label = { Text(text = "Dashboard") },
+                    selected = true,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.Home, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Planning") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.Edit, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Marketplace") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.ShoppingCart, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Budget") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.DateRange, contentDescription = null) }, // Using DateRange as placeholder for Budget
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Ceremony") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.Star, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Guests") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.Person, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Memorial") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.Favorite, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Support") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.Info, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Profile") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } },
+                    icon = { Icon(Icons.Filled.AccountCircle, contentDescription = null) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+            }
         }
-    ) { innerPadding ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
-        ) {
-            item { WelcomeSection() }
-            item { StatsGrid() }
-            item { PlanningProgressSection() }
-            item { UpcomingEventsSection() }
-            item { BudgetOverviewSection() }
-            item { QuickActionsSection() }
+    ) {
+        Scaffold(
+            topBar = {
+                CenterAlignedTopAppBar(
+                    title = { Text("Memora") },
+                    navigationIcon = {
+                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                            Icon(
+                                imageVector = Icons.Filled.Menu,
+                                contentDescription = "Menu"
+                            )
+                        }
+                    }
+                )
+            },
+            bottomBar = {
+                // Placeholder for Bottom Navigation if needed later
+            }
+        ) { innerPadding ->
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                item { WelcomeSection() }
+                item { StatsGrid() }
+                item { PlanningProgressSection() }
+                item { UpcomingEventsSection() }
+                item { BudgetOverviewSection() }
+                item { QuickActionsSection() }
+            }
         }
     }
 }
