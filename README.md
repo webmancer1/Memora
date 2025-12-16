@@ -69,6 +69,6 @@ The application follows the recommended **Guide to App Architecture** (MVVM / Cl
 1.  **Code Style:** Follow the official [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html).
 2.  **Branching:** Use feature branches (e.g., `feature/login-auth`, `fix/crash-on-start`).
 3.  **Commits:** Write clear, descriptive commit messages.
-4.  **Testing:** Ensure new features are covered by unit tests where possible.
+4.  **Testing:** Ensurses new features are covered by unit tests where possible.
 
 
