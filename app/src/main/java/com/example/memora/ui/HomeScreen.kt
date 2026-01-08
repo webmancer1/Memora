@@ -164,7 +164,7 @@ fun WelcomeSection() {
         Text(
             text = "James Mwendwa", // Placeholder name
             style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Normal // Softer weight
         )
     }
 }
@@ -200,7 +200,7 @@ fun StatsGrid() {
                 title = "RSVPs",
                 value = "85/120",
                 icon = Icons.Default.Person,
-                color = MaterialTheme.colorScheme.errorContainer,
+                color = MaterialTheme.colorScheme.surfaceVariant, // Changed from errorContainer for a calmer look
                 modifier = Modifier.weight(1f)
             )
         }
@@ -218,21 +218,27 @@ fun StatCard(
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(containerColor = color),
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(24.dp), // Softer corners
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp) // Flat design for modern look
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Icon(imageVector = icon, contentDescription = null)
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant // Ensure good contrast
+            )
             Text(
                 text = value,
                 style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Medium
             )
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodySmall
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
@@ -454,6 +460,7 @@ fun QuickActionButton(label: String, icon: ImageVector, modifier: Modifier = Mod
         FilledIconButton(
             onClick = { /* TODO */ },
             modifier = Modifier.size(56.dp),
+            shape = RoundedCornerShape(20.dp), // Softer shape
             colors = IconButtonDefaults.filledIconButtonColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer
             )
