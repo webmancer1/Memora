@@ -408,21 +408,45 @@ fun QuickActionsSection() {
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold
         )
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            QuickActionButton("Schedule Service", Icons.Default.DateRange)
-            QuickActionButton("Invite Guests", Icons.Default.Person)
-            QuickActionButton("Add Expense", Icons.Default.ShoppingCart)
-            QuickActionButton("View Reports", Icons.Default.List)
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                QuickActionButton(
+                    "Schedule Service",
+                    Icons.Default.DateRange,
+                    modifier = Modifier.weight(1f)
+                )
+                QuickActionButton(
+                    "Invite Guests",
+                    Icons.Default.Person,
+                    modifier = Modifier.weight(1f)
+                )
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                QuickActionButton(
+                    "Add Expense",
+                    Icons.Default.ShoppingCart,
+                    modifier = Modifier.weight(1f)
+                )
+                QuickActionButton(
+                    "View Reports",
+                    Icons.Default.List,
+                    modifier = Modifier.weight(1f)
+                )
+            }
         }
     }
 }
 
 @Composable
-fun QuickActionButton(label: String, icon: ImageVector) {
+fun QuickActionButton(label: String, icon: ImageVector, modifier: Modifier = Modifier) {
     Column(
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
