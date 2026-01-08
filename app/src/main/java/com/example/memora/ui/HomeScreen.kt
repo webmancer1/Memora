@@ -412,10 +412,10 @@ fun QuickActionsSection() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            QuickActionButton("Add Task", Icons.Default.Add)
-            QuickActionButton("Add Guest", Icons.Default.Person)
+            QuickActionButton("Schedule Service", Icons.Default.DateRange)
+            QuickActionButton("Invite Guests", Icons.Default.Person)
             QuickActionButton("Add Expense", Icons.Default.ShoppingCart)
-            QuickActionButton("Edit Arrangements", Icons.Default.Edit)
+            QuickActionButton("View Reports", Icons.Default.List)
         }
     }
 }
