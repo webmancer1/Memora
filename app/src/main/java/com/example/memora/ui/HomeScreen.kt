@@ -368,11 +368,12 @@ fun BudgetOverviewSection() {
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
             shape = RoundedCornerShape(16.dp)
         ) {
-            Column(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier.padding(24.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
                 BudgetRow("Funeral Home", 0.7f, "$4,500 / $6,000")
-                Spacer(modifier = Modifier.height(8.dp))
                 BudgetRow("Casket/Urn", 0.4f, "$1,200 / $3,000")
-                Spacer(modifier = Modifier.height(8.dp))
                 BudgetRow("Flowers", 0.9f, "$900 / $1,000")
             }
         }
