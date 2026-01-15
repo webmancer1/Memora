@@ -29,7 +29,8 @@ fun HomeScreen(
     onNavigateToTask: () -> Unit = {},
     onNavigateToBudget: () -> Unit = {},
     onNavigateToGuests: () -> Unit = {},
-    onNavigateToDashboard: () -> Unit = {}
+    onNavigateToDashboard: () -> Unit = {},
+    onNavigateToProfile: () -> Unit = {}
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -110,7 +111,12 @@ fun HomeScreen(
                 NavigationDrawerItem(
                     label = { Text(text = "Profile") },
                     selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
+                    onClick = { 
+                        scope.launch { 
+                            drawerState.close() 
+                            onNavigateToProfile()
+                        } 
+                    },
                     icon = { Icon(Icons.Filled.AccountCircle, contentDescription = null) },
                     modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
                 )
