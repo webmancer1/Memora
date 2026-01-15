@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.memora.ui.LoginScreen
 import com.example.memora.ui.RegisterScreen
 import com.example.memora.ui.HomeScreen
+import com.example.memora.ui.ProfileScreen
 import com.example.memora.ui.theme.MemoraTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,7 +57,13 @@ class MainActivity : ComponentActivity() {
                                         popUpTo("home") { inclusive = true }
                                         launchSingleTop = true
                                     }
-                                }
+                                },
+                                onNavigateToProfile = { navController.navigate("profile") }
+                            )
+                        }
+                        composable("profile") {
+                            ProfileScreen(
+                                onBackClick = { navController.popBackStack() }
                             )
                         }
                     }
