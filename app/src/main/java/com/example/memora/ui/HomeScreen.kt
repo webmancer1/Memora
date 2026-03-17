@@ -225,7 +225,7 @@ fun StatCard(
     Card(
         modifier = modifier.height(130.dp),
         colors = CardDefaults.cardColors(containerColor = color),
-        shape = RoundedCornerShape(24.dp), // Softer corners
+        shape = RoundedCornerShape(12.dp), // Softer corners
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) // Lifted design
     ) {
         Column(
@@ -265,7 +265,7 @@ fun StatCard(
 fun PlanningProgressSection() {
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-        shape = RoundedCornerShape(24.dp),
+        shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
@@ -339,7 +339,7 @@ fun EventCard(index: Int) {
         modifier = Modifier.width(280.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(12.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(
@@ -393,7 +393,7 @@ fun BudgetOverviewSection() {
         Card(
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-            shape = RoundedCornerShape(16.dp)
+            shape = RoundedCornerShape(12.dp)
         ) {
             Column(
                 modifier = Modifier.padding(24.dp),
@@ -481,7 +481,7 @@ fun QuickActionButton(label: String, icon: ImageVector, modifier: Modifier = Mod
         FilledIconButton(
             onClick = { /* TODO */ },
             modifier = Modifier.size(64.dp),
-            shape = RoundedCornerShape(24.dp), 
+            shape = RoundedCornerShape(12.dp), 
             colors = IconButtonDefaults.filledIconButtonColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer
             )
