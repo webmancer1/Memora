@@ -91,7 +91,7 @@ fun ProfileScreen(
             Button(
                 onClick = { /* TODO: Implement Edit Profile */ },
                 modifier = Modifier.fillMaxWidth().height(56.dp),
-                shape = RoundedCornerShape(28.dp)
+                shape = RoundedCornerShape(12.dp)
             ) {
                 Text("Edit Profile", fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
             }
