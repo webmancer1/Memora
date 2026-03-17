@@ -46,7 +46,14 @@ fun LoginScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(
+                brush = androidx.compose.ui.graphics.Brush.verticalGradient(
+                    colors = listOf(
+                        MaterialTheme.colorScheme.primary,
+                        MaterialTheme.colorScheme.tertiary
+                    )
+                )
+            )
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -55,37 +62,37 @@ fun LoginScreen(
         Text(
             text = "Memora",
             style = MaterialTheme.typography.displayMedium,
-            color = MaterialTheme.colorScheme.primary,
+            color = androidx.compose.ui.graphics.Color.White,
             fontWeight = androidx.compose.ui.text.font.FontWeight.Light
         )
         
         Text(
             text = "Honoring Memories",
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary
+            color = androidx.compose.ui.graphics.Color.White.copy(alpha = 0.8f)
         )
 
         Spacer(modifier = Modifier.height(48.dp))
 
         androidx.compose.material3.Card(
             colors = androidx.compose.material3.CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface
+                containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f)
             ),
-            elevation = androidx.compose.material3.CardDefaults.cardElevation(defaultElevation = 4.dp),
-            shape = RoundedCornerShape(24.dp),
+            elevation = androidx.compose.material3.CardDefaults.cardElevation(defaultElevation = 8.dp),
+            shape = RoundedCornerShape(32.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(
-                modifier = Modifier.padding(24.dp),
+                modifier = Modifier.padding(32.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = "Welcome Back",
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(32.dp))
 
                 OutlinedTextField(
                     value = email,
@@ -94,7 +101,7 @@ fun LoginScreen(
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                     singleLine = true,
-                    shape = RoundedCornerShape(12.dp),
+                    shape = RoundedCornerShape(16.dp),
                     colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = MaterialTheme.colorScheme.primary,
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -111,7 +118,7 @@ fun LoginScreen(
                     visualTransformation = PasswordVisualTransformation(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     singleLine = true,
-                    shape = RoundedCornerShape(12.dp),
+                    shape = RoundedCornerShape(16.dp),
                     colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = MaterialTheme.colorScheme.primary,
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -122,18 +129,18 @@ fun LoginScreen(
 
                 Button(
                     onClick = onLoginClick,
-                    modifier = Modifier.fillMaxWidth().height(50.dp),
-                    shape = RoundedCornerShape(25.dp),
+                    modifier = Modifier.fillMaxWidth().height(56.dp),
+                    shape = RoundedCornerShape(28.dp),
                     colors = androidx.compose.material3.ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     )
                 ) {
-                    Text("Login", fontSize = 16.sp)
+                    Text("Login", fontSize = 18.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(32.dp))
 
         androidx.compose.material3.OutlinedButton(
             onClick = {
@@ -157,10 +164,15 @@ fun LoginScreen(
                     }
                 }
             },
-            modifier = Modifier.fillMaxWidth().height(50.dp),
-            shape = RoundedCornerShape(25.dp)
+            modifier = Modifier.fillMaxWidth().height(56.dp),
+            shape = RoundedCornerShape(28.dp),
+            colors = androidx.compose.material3.ButtonDefaults.outlinedButtonColors(
+                containerColor = androidx.compose.ui.graphics.Color.White.copy(alpha = 0.1f),
+                contentColor = androidx.compose.ui.graphics.Color.White
+            ),
+            border = androidx.compose.foundation.BorderStroke(1.dp, androidx.compose.ui.graphics.Color.White.copy(alpha = 0.5f))
         ) {
-            Text("Sign in with Google")
+            Text("Sign in with Google", fontSize = 16.sp)
         }
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -168,7 +180,8 @@ fun LoginScreen(
         TextButton(onClick = onRegisterClick) {
             Text(
                 "Don't have an account? Register",
-                color = MaterialTheme.colorScheme.primary
+                color = androidx.compose.ui.graphics.Color.White,
+                fontWeight = androidx.compose.ui.text.font.FontWeight.Medium
             )
         }
     }
