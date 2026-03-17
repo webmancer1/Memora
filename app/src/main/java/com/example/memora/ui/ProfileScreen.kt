@@ -17,6 +17,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -88,9 +90,10 @@ fun ProfileScreen(
             
             Button(
                 onClick = { /* TODO: Implement Edit Profile */ },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                shape = RoundedCornerShape(28.dp)
             ) {
-                Text("Edit Profile")
+                Text("Edit Profile", fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
             }
         }
     }
