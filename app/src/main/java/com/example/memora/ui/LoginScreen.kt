@@ -79,7 +79,7 @@ fun LoginScreen(
                 containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f)
             ),
             elevation = androidx.compose.material3.CardDefaults.cardElevation(defaultElevation = 8.dp),
-            shape = RoundedCornerShape(32.dp),
+            shape = RoundedCornerShape(16.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(
@@ -101,7 +101,7 @@ fun LoginScreen(
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                     singleLine = true,
-                    shape = RoundedCornerShape(16.dp),
+                    shape = RoundedCornerShape(8.dp),
                     colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = MaterialTheme.colorScheme.primary,
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -118,7 +118,7 @@ fun LoginScreen(
                     visualTransformation = PasswordVisualTransformation(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     singleLine = true,
-                    shape = RoundedCornerShape(16.dp),
+                    shape = RoundedCornerShape(8.dp),
                     colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = MaterialTheme.colorScheme.primary,
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -130,7 +130,7 @@ fun LoginScreen(
                 Button(
                     onClick = onLoginClick,
                     modifier = Modifier.fillMaxWidth().height(56.dp),
-                    shape = RoundedCornerShape(28.dp),
+                    shape = RoundedCornerShape(12.dp),
                     colors = androidx.compose.material3.ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     )
@@ -165,7 +165,7 @@ fun LoginScreen(
                 }
             },
             modifier = Modifier.fillMaxWidth().height(56.dp),
-            shape = RoundedCornerShape(28.dp),
+            shape = RoundedCornerShape(12.dp),
             colors = androidx.compose.material3.ButtonDefaults.outlinedButtonColors(
                 containerColor = androidx.compose.ui.graphics.Color.White.copy(alpha = 0.1f),
                 contentColor = androidx.compose.ui.graphics.Color.White
