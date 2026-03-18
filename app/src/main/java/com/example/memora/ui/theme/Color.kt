@@ -2,14 +2,15 @@ package com.example.memora.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val DeepNavy = Color(0xFF0F172A)
-val Navy80 = Color(0xFF1E293B)
-val SlateGray = Color(0xFF334155)
-val LightSlate = Color(0xFF94A3B8)
+val DeepCharcoal = Color(0xFF1E1E24)
+val SlateCharcoal = Color(0xFF2B2D42)
+val CharcoalGray = Color(0xFF4A4E69)
+val SoftSilver = Color(0xFF8D99AE)
+val DoveGray = Color(0xFFEDF2F4)
 
-val SoftGold = Color(0xFFD4AF37)
-val PaleGold = Color(0xFFFDE047)
-val SoftEmerald = Color(0xFF10B981)
+val ElegantGold = Color(0xFFC5A880) // Subtle, respectful accent
+val MutedSage = Color(0xFF7B8B79)   // Calming nature accent
+val SoftLilac = Color(0xFF9E8E9E)   // Delicate memorial accent
 
-val AppBackgroundLight = Color(0xFFF8FAFC)
+val AppBackgroundLight = Color(0xFFF7F7F8)
 val AppSurfaceLight = Color.White
