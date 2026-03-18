@@ -13,29 +13,29 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = SoftGold,
-    secondary = SoftEmerald,
-    tertiary = LightSlate,
-    background = DeepNavy,
-    surface = Navy80,
-    onPrimary = DeepNavy,
-    onSecondary = DeepNavy,
-    onTertiary = DeepNavy,
-    onBackground = LightSlate,
-    onSurface = LightSlate
+    primary = ElegantGold,
+    secondary = MutedSage,
+    tertiary = SoftLilac,
+    background = DeepCharcoal,
+    surface = SlateCharcoal,
+    onPrimary = DeepCharcoal,
+    onSecondary = DeepCharcoal,
+    onTertiary = DeepCharcoal,
+    onBackground = DoveGray,
+    onSurface = DoveGray
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = DeepNavy,
-    secondary = SoftEmerald,
-    tertiary = SlateGray,
+    primary = SlateCharcoal,
+    secondary = MutedSage,
+    tertiary = ElegantGold,
     background = AppBackgroundLight,
     surface = AppSurfaceLight,
     onPrimary = Color.White,
     onSecondary = Color.White,
     onTertiary = Color.White,
-    onBackground = DeepNavy,
-    onSurface = DeepNavy
+    onBackground = DeepCharcoal,
+    onSurface = DeepCharcoal
 )
 
 @Composable
