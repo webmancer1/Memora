@@ -16,7 +16,9 @@ import com.example.memora.ui.RegisterScreen
 import com.example.memora.ui.HomeScreen
 import com.example.memora.ui.ProfileScreen
 import com.example.memora.ui.theme.MemoraTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,12 +60,21 @@ class MainActivity : ComponentActivity() {
                                         launchSingleTop = true
                                     }
                                 },
-                                onNavigateToProfile = { navController.navigate("profile") }
+                                onNavigateToProfile = { navController.navigate("profile") },
+                                onNavigateToPlanning = { navController.navigate("planning") }
                             )
                         }
                         composable("profile") {
                             ProfileScreen(
                                 onBackClick = { navController.popBackStack() }
+                            )
+                        }
+                        composable("planning") {
+                            com.example.memora.ui.planning.PlanningScreen(
+                                onOpenDrawer = {
+                                    /* Handle Drawer opening here if needed, or back button */
+                                    navController.popBackStack()
+                                }
                             )
                         }
                     }
