@@ -79,9 +79,10 @@ fun TimelineItem(
             }
             // Connecting line
             if (!isLast) {
+                val lineColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.2f)
                 Canvas(modifier = Modifier.width(2.dp).fillMaxHeight()) {
                     drawLine(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.2f),
+                        color = lineColor,
                         start = Offset(size.width / 2, 0f),
                         end = Offset(size.width / 2, size.height),
                         strokeWidth = 2.dp.toPx()
