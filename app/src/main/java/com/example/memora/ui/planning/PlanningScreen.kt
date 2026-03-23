@@ -132,7 +132,7 @@ fun PlanningScreen(
             // Tab Content
             Box(modifier = Modifier.fillMaxSize()) {
                 when (selectedTabIndex) {
-                    0 -> TimelineTabContent()
+                    0 -> TimelineTabContent(viewModel = viewModel)
                     1 -> TasksTabContent(viewModel = viewModel)
                     2 -> DocumentsTabContent()
                 }
@@ -149,13 +149,6 @@ fun PlanningScreen(
                 viewModel.addTask(title, description, categoryId, priority, dueDate)
             }
         )
-    }
-}
-
-@Composable
-fun TimelineTabContent() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("Timeline View Coming Soon")
     }
 }
 
