@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import com.example.memora.ui.components.MemoraAppDrawer
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,98 +37,12 @@ fun HomeScreen(
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    ModalNavigationDrawer(
+    MemoraAppDrawer(
         drawerState = drawerState,
-        drawerContent = {
-            ModalDrawerSheet {
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    "Memora",
-                    modifier = Modifier.padding(16.dp),
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold
-                )
-                HorizontalDivider()
-                NavigationDrawerItem(
-                    label = { Text(text = "Dashboard") },
-                    selected = true,
-                    onClick = { 
-                        scope.launch { 
-                            drawerState.close() 
-                            onNavigateToDashboard()
-                        } 
-                    },
-                    icon = { Icon(Icons.Filled.Home, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Planning") },
-                    selected = false,
-                    onClick = { 
-                        scope.launch { 
-                            drawerState.close() 
-                            onNavigateToPlanning() 
-                        } 
-                    },
-                    icon = { Icon(Icons.Filled.Edit, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Marketplace") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
-                    icon = { Icon(Icons.Filled.ShoppingCart, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Budget") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
-                    icon = { Icon(Icons.Filled.DateRange, contentDescription = null) }, // Using DateRange as placeholder for Budget
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Ceremony") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
-                    icon = { Icon(Icons.Filled.Star, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Guests") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
-                    icon = { Icon(Icons.Filled.Person, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Memorial") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
-                    icon = { Icon(Icons.Filled.Favorite, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Support") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } },
-                    icon = { Icon(Icons.Filled.Info, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Profile") },
-                    selected = false,
-                    onClick = { 
-                        scope.launch { 
-                            drawerState.close() 
-                            onNavigateToProfile()
-                        } 
-                    },
-                    icon = { Icon(Icons.Filled.AccountCircle, contentDescription = null) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-            }
-        }
+        currentRoute = "home",
+        onNavigateToDashboard = onNavigateToDashboard,
+        onNavigateToPlanning = onNavigateToPlanning,
+        onNavigateToProfile = onNavigateToProfile
     ) {
         Scaffold(
             topBar = {
