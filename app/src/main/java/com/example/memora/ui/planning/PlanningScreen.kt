@@ -15,16 +15,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.memora.ui.theme.MemoraTheme
+import com.example.memora.ui.components.MemoraAppDrawer
 import com.example.memora.ui.planning.components.AddTaskSheet
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlanningScreen(
     viewModel: PlanningViewModel = hiltViewModel(),
-    onNavigateBack: () -> Unit = {},
-    onOpenDrawer: () -> Unit = {}
+    onNavigateToDashboard: () -> Unit = {},
+    onNavigateToPlanning: () -> Unit = {},
+    onNavigateToProfile: () -> Unit = {}
 ) {
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
     val progressPercentage by viewModel.progressPercentage.collectAsState()
     val tasks by viewModel.filteredTasks.collectAsState()
     
@@ -32,17 +36,24 @@ fun PlanningScreen(
     var showAddSheet by remember { mutableStateOf(false) }
     val tabs = listOf("Timeline", "Tasks", "Documents")
 
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = { Text("Memora", fontWeight = FontWeight.Bold) },
-                navigationIcon = {
-                    IconButton(onClick = onOpenDrawer) {
-                        Icon(Icons.Default.Menu, contentDescription = "Open Menu")
+    MemoraAppDrawer(
+        drawerState = drawerState,
+        currentRoute = "planning",
+        onNavigateToDashboard = onNavigateToDashboard,
+        onNavigateToPlanning = onNavigateToPlanning,
+        onNavigateToProfile = onNavigateToProfile
+    ) {
+        Scaffold(
+            topBar = {
+                CenterAlignedTopAppBar(
+                    title = { Text("Memora", fontWeight = FontWeight.Bold) },
+                    navigationIcon = {
+                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                            Icon(Icons.Default.Menu, contentDescription = "Open Menu")
+                        }
                     }
-                }
-            )
-        },
+                )
+            },
         floatingActionButton = {
             if (selectedTabIndex == 1) { // Only show FAB on Tasks tab
                 FloatingActionButton(
@@ -136,6 +147,7 @@ fun PlanningScreen(
                     1 -> TasksTabContent(viewModel = viewModel)
                     2 -> DocumentsTabContent(viewModel = viewModel)
                 }
+            }
             }
         }
     }
