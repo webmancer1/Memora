@@ -107,6 +107,25 @@ class PlanningViewModel @Inject constructor(
             repository.deleteTask(task)
         }
     }
+
+    fun addDocument(title: String, type: String, filePath: String) {
+        viewModelScope.launch {
+            repository.insertDocument(
+                DocumentEntity(
+                    title = title,
+                    type = type,
+                    filePath = filePath,
+                    uploadDate = System.currentTimeMillis()
+                )
+            )
+        }
+    }
+
+    fun deleteDocument(document: DocumentEntity) {
+        viewModelScope.launch {
+            repository.deleteDocument(document)
+        }
+    }
 }
 
 enum class TaskStatusFilter { ALL, PENDING, COMPLETED }
