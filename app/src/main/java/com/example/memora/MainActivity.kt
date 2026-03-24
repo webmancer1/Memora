@@ -71,10 +71,14 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("planning") {
                             com.example.memora.ui.planning.PlanningScreen(
-                                onOpenDrawer = {
-                                    /* Handle Drawer opening here if needed, or back button */
-                                    navController.popBackStack()
-                                }
+                                onNavigateToDashboard = {
+                                    navController.navigate("home") {
+                                        popUpTo("home") { inclusive = true }
+                                        launchSingleTop = true
+                                    }
+                                },
+                                onNavigateToPlanning = { navController.navigate("planning") },
+                                onNavigateToProfile = { navController.navigate("profile") }
                             )
                         }
                     }
