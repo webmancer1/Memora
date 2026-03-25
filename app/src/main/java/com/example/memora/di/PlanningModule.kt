@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.memora.data.local.PlanningDatabase
 import com.example.memora.data.local.dao.PlanningDao
+import com.example.memora.data.local.dao.BudgetDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +33,11 @@ object PlanningModule {
     @Singleton
     fun providePlanningDao(database: PlanningDatabase): PlanningDao {
         return database.planningDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideBudgetDao(database: PlanningDatabase): BudgetDao {
+        return database.budgetDao()
     }
 }
