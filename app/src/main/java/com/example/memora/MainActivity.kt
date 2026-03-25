@@ -78,7 +78,21 @@ class MainActivity : ComponentActivity() {
                                     }
                                 },
                                 onNavigateToPlanning = { navController.navigate("planning") },
-                                onNavigateToProfile = { navController.navigate("profile") }
+                                onNavigateToProfile = { navController.navigate("profile") },
+                                onNavigateToBudget = { navController.navigate("budget") }
+                            )
+                        }
+                        composable("budget") {
+                            com.example.memora.ui.planning.BudgetScreen(
+                                onNavigateToDashboard = {
+                                    navController.navigate("home") {
+                                        popUpTo("home") { inclusive = true }
+                                        launchSingleTop = true
+                                    }
+                                },
+                                onNavigateToPlanning = { navController.navigate("planning") },
+                                onNavigateToProfile = { navController.navigate("profile") },
+                                onNavigateToBudget = { navController.navigate("budget") { launchSingleTop = true } }
                             )
                         }
                     }
