@@ -6,12 +6,16 @@ import com.example.memora.data.local.dao.PlanningDao
 import com.example.memora.data.local.entity.CategoryEntity
 import com.example.memora.data.local.entity.DocumentEntity
 import com.example.memora.data.local.entity.TaskEntity
+import com.example.memora.data.local.entity.BudgetEntity
+import com.example.memora.data.local.entity.ExpenseEntity
+import com.example.memora.data.local.dao.BudgetDao
 
 @Database(
-    entities = [TaskEntity::class, CategoryEntity::class, DocumentEntity::class],
-    version = 1,
+    entities = [TaskEntity::class, CategoryEntity::class, DocumentEntity::class, BudgetEntity::class, ExpenseEntity::class],
+    version = 2,
     exportSchema = false
 )
 abstract class PlanningDatabase : RoomDatabase() {
     abstract fun planningDao(): PlanningDao
+    abstract fun budgetDao(): BudgetDao
 }
