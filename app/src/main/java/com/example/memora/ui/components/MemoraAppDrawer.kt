@@ -20,6 +20,7 @@ fun MemoraAppDrawer(
     onNavigateToDashboard: () -> Unit = {},
     onNavigateToPlanning: () -> Unit = {},
     onNavigateToProfile: () -> Unit = {},
+    onNavigateToBudget: () -> Unit = {},
     content: @Composable () -> Unit
 ) {
     val scope = rememberCoroutineScope()
@@ -70,7 +71,12 @@ fun MemoraAppDrawer(
                 NavigationDrawerItem(
                     label = { Text(text = "Budget") },
                     selected = currentRoute == "budget",
-                    onClick = { scope.launch { drawerState.close() } },
+                    onClick = { 
+                        scope.launch { 
+                            drawerState.close() 
+                            onNavigateToBudget() 
+                        } 
+                    },
                     icon = { Icon(Icons.Filled.DateRange, contentDescription = null) },
                     modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
                 )
