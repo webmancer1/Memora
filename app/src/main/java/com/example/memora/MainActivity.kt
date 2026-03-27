@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = "home", // Changed to home for testing
+                        startDestination = "home", 
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable("login") {
