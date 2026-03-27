@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BudgetDao {
 
-    // === Expense Operations ===
+
 
     @Query("SELECT * FROM expenses ORDER BY date DESC")
     fun getAllExpenses(): Flow<List<ExpenseEntity>>
@@ -27,9 +27,8 @@ interface BudgetDao {
     @Delete
     suspend fun deleteExpense(expense: ExpenseEntity)
 
-    // === Budget Operations ===
+
     
-    // We assume a single budget conceptually, so limit to 1.
     @Query("SELECT * FROM budget LIMIT 1")
     fun getBudget(): Flow<BudgetEntity?>
 
