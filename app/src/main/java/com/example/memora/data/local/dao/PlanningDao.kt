@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PlanningDao {
-    // Tasks
+    
     @Query("SELECT * FROM tasks ORDER BY dueDate ASC, priority DESC")
     fun getAllTasks(): Flow<List<TaskEntity>>
 
@@ -21,14 +21,14 @@ interface PlanningDao {
     @Delete
     suspend fun deleteTask(task: TaskEntity)
 
-    // Categories
+    
     @Query("SELECT * FROM categories ORDER BY name ASC")
     fun getAllCategories(): Flow<List<CategoryEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCategory(category: CategoryEntity)
 
-    // Documents
+    
     @Query("SELECT * FROM documents ORDER BY uploadDate DESC")
     fun getAllDocuments(): Flow<List<DocumentEntity>>
 
