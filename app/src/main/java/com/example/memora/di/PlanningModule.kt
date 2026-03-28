@@ -24,7 +24,7 @@ object PlanningModule {
             PlanningDatabase::class.java,
             "planning_database"
         )
-        // Note: For production app, add migrations here
+        
         .fallbackToDestructiveMigration()
         .build()
     }
