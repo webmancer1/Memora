@@ -10,7 +10,7 @@ import javax.inject.Inject
 class PlanningRepository @Inject constructor(
     private val planningDao: PlanningDao
 ) {
-    // Tasks
+    
     fun getAllTasks(): Flow<List<TaskEntity>> = planningDao.getAllTasks()
     
     suspend fun insertTask(task: TaskEntity) {
@@ -25,14 +25,14 @@ class PlanningRepository @Inject constructor(
         planningDao.deleteTask(task)
     }
 
-    // Categories
+    
     fun getAllCategories(): Flow<List<CategoryEntity>> = planningDao.getAllCategories()
     
     suspend fun insertCategory(category: CategoryEntity) {
         planningDao.insertCategory(category)
     }
     
-    // Documents
+    
     fun getAllDocuments(): Flow<List<DocumentEntity>> = planningDao.getAllDocuments()
     
     suspend fun insertDocument(document: DocumentEntity) {
