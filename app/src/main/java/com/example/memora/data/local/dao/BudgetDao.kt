@@ -28,7 +28,7 @@ interface BudgetDao {
     suspend fun deleteExpense(expense: ExpenseEntity)
 
 
-    
+
     @Query("SELECT * FROM budget LIMIT 1")
     fun getBudget(): Flow<BudgetEntity?>
 
