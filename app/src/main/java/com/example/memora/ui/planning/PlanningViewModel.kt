@@ -53,7 +53,7 @@ class PlanningViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0f)
 
     init {
-        // Pre-populate default categories if empty
+        
         viewModelScope.launch {
             categories.collect { cats ->
                 if (cats.isEmpty()) {
