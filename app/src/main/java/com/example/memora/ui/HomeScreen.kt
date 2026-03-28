@@ -59,7 +59,7 @@ fun HomeScreen(
                 )
             },
             bottomBar = {
-                // Placeholder for Bottom Navigation if needed later
+                
             }
         ) { innerPadding ->
             LazyColumn(
@@ -89,7 +89,7 @@ fun WelcomeSection() {
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
-            text = "James Mwendwa", // Placeholder name
+            text = "James Mwendwa", 
             style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.Bold
@@ -128,7 +128,7 @@ fun StatsGrid() {
                 title = "RSVPs",
                 value = "85/120",
                 icon = Icons.Default.Person,
-                color = MaterialTheme.colorScheme.surfaceVariant, // Changed from errorContainer for a calmer look
+                color = MaterialTheme.colorScheme.surfaceVariant, 
                 modifier = Modifier.weight(1f)
             )
         }
@@ -146,8 +146,8 @@ fun StatCard(
     Card(
         modifier = modifier.height(130.dp),
         colors = CardDefaults.cardColors(containerColor = color),
-        shape = RoundedCornerShape(12.dp), // Softer corners
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) // Lifted design
+        shape = RoundedCornerShape(12.dp), 
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) 
     ) {
         Column(
             modifier = Modifier.padding(16.dp).fillMaxSize(),
@@ -241,7 +241,7 @@ fun UpcomingEventsSection() {
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold
             )
-            TextButton(onClick = { /* TODO */ }) {
+            TextButton(onClick = {  }) {
                 Text("See All")
             }
         }
@@ -400,7 +400,7 @@ fun QuickActionButton(label: String, icon: ImageVector, modifier: Modifier = Mod
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         FilledIconButton(
-            onClick = { /* TODO */ },
+            onClick = {  },
             modifier = Modifier.size(64.dp),
             shape = RoundedCornerShape(12.dp), 
             colors = IconButtonDefaults.filledIconButtonColors(
