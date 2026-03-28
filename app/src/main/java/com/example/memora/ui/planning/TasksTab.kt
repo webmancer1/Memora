@@ -31,9 +31,9 @@ fun TasksTabContent(viewModel: PlanningViewModel) {
             .fillMaxSize()
             .padding(horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(top = 16.dp, bottom = 80.dp) // Leave space for FAB
+        contentPadding = PaddingValues(top = 16.dp, bottom = 80.dp) 
     ) {
-        // Pending Tasks
+        
         item {
             CollapsibleHeader(
                 title = "Pending (${pendingTasks.size})",
@@ -48,7 +48,7 @@ fun TasksTabContent(viewModel: PlanningViewModel) {
                     task = task,
                     category = category,
                     onToggleComplete = { viewModel.toggleTaskCompletion(task) },
-                    onClick = { /* TODO: Open Task Edit Sheet */ }
+                    onClick = {  }
                 )
                 Spacer(modifier = Modifier.height(12.dp))
             }
@@ -66,7 +66,7 @@ fun TasksTabContent(viewModel: PlanningViewModel) {
 
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
-        // Completed Tasks
+        
         item {
             CollapsibleHeader(
                 title = "Completed (${completedTasks.size})",
@@ -81,7 +81,7 @@ fun TasksTabContent(viewModel: PlanningViewModel) {
                     task = task,
                     category = category,
                     onToggleComplete = { viewModel.toggleTaskCompletion(task) },
-                    onClick = { /* TODO: Open Task Edit Sheet */ }
+                    onClick = {  }
                 )
                 Spacer(modifier = Modifier.height(12.dp))
             }
