@@ -32,7 +32,7 @@ fun PlanningScreen(
     val progressPercentage by viewModel.progressPercentage.collectAsState()
     val tasks by viewModel.filteredTasks.collectAsState()
     
-    var selectedTabIndex by remember { mutableStateOf(1) } // Default to Tasks tab
+    var selectedTabIndex by remember { mutableStateOf(1) } 
     var showAddSheet by remember { mutableStateOf(false) }
     val tabs = listOf("Timeline", "Tasks", "Documents")
 
@@ -55,7 +55,7 @@ fun PlanningScreen(
                 )
             },
         floatingActionButton = {
-            if (selectedTabIndex == 1) { // Only show FAB on Tasks tab
+            if (selectedTabIndex == 1) { 
                 FloatingActionButton(
                     onClick = { showAddSheet = true },
                     containerColor = MaterialTheme.colorScheme.tertiary,
@@ -71,7 +71,7 @@ fun PlanningScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            // Header Section
+            
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
                     text = "Funeral Planning",
@@ -87,7 +87,7 @@ fun PlanningScreen(
                 
                 Spacer(modifier = Modifier.height(16.dp))
                 
-                // Progress Section
+                
                 Card(
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
                     shape = RoundedCornerShape(12.dp)
@@ -126,7 +126,7 @@ fun PlanningScreen(
                 }
             }
 
-            // Tab Navigation
+            
             TabRow(
                 selectedTabIndex = selectedTabIndex,
                 containerColor = MaterialTheme.colorScheme.background
@@ -140,7 +140,7 @@ fun PlanningScreen(
                 }
             }
 
-            // Tab Content
+            
             Box(modifier = Modifier.fillMaxSize()) {
                 when (selectedTabIndex) {
                     0 -> TimelineTabContent(viewModel = viewModel)
