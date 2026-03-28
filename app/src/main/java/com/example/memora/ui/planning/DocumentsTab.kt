@@ -124,7 +124,7 @@ fun DocumentItem(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    imageVector = Icons.Default.Info, // Placeholder icon
+                    imageVector = Icons.Default.Info, 
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary
                 )
