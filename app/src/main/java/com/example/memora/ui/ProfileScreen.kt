@@ -48,7 +48,7 @@ fun ProfileScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            // Profile Picture Placeholder
+            
             Box(
                 modifier = Modifier
                     .size(120.dp)
@@ -64,7 +64,7 @@ fun ProfileScreen(
                 )
             }
 
-            // User Info
+            
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -72,24 +72,24 @@ fun ProfileScreen(
                 ProfileItem(
                     icon = Icons.Default.Person,
                     label = "Name",
-                    value = "James Mwendwa" // Placeholder
+                    value = "James Mwendwa" 
                 )
                 ProfileItem(
                     icon = Icons.Default.Email,
                     label = "Email",
-                    value = "james.mwendwa@example.com" // Placeholder
+                    value = "james.mwendwa@example.com" 
                 )
                 ProfileItem(
                     icon = Icons.Default.Phone,
                     label = "Phone",
-                    value = "+254 712 345 678" // Placeholder
+                    value = "+254 712 345 678" 
                 )
             }
             
             Spacer(modifier = Modifier.weight(1f))
             
             Button(
-                onClick = { /* TODO: Implement Edit Profile */ },
+                onClick = {  },
                 modifier = Modifier.fillMaxWidth().height(56.dp),
                 shape = RoundedCornerShape(12.dp)
             ) {
