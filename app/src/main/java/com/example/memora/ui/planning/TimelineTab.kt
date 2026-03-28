@@ -23,7 +23,7 @@ fun TimelineTabContent(viewModel: PlanningViewModel) {
     val tasks by viewModel.rawTasks.collectAsState()
     val categories by viewModel.categories.collectAsState()
 
-    // Sort tasks: due date first (nulls last), then priority
+    
     val sortedTasks = tasks.sortedWith(compareBy<TaskEntity> { it.dueDate == null }
         .thenBy { it.dueDate }
         .thenByDescending { it.priority })
@@ -41,7 +41,7 @@ fun TimelineTabContent(viewModel: PlanningViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 24.dp),
-            verticalArrangement = Arrangement.spacedBy(0.dp) // Removed spacing between items to allow line connection
+            verticalArrangement = Arrangement.spacedBy(0.dp) 
         ) {
             itemsIndexed(sortedTasks) { index, task ->
                 val category = categories.find { it.id == task.categoryId }
@@ -66,18 +66,18 @@ fun TimelineItem(
     Row(
         modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
     ) {
-        // Timeline node & connecting line
+        
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(end = 16.dp)
         ) {
             val nodeColor = if (task.isCompleted) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
             
-            // The Dot
+            
             Canvas(modifier = Modifier.size(20.dp).padding(top = 4.dp)) {
                 drawCircle(color = nodeColor, radius = size.minDimension / 2f)
             }
-            // Connecting line
+            
             if (!isLast) {
                 val lineColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.2f)
                 Canvas(modifier = Modifier.width(2.dp).fillMaxHeight()) {
@@ -93,11 +93,11 @@ fun TimelineItem(
             }
         }
 
-        // Timeline Content (Task Card)
+        
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 24.dp), // spacing below each item
+                .padding(bottom = 24.dp), 
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
         ) {
@@ -133,7 +133,7 @@ fun TimelineItem(
                     )
                 }
                 
-                // Show completion status flag
+                
                 if (task.isCompleted) {
                     Text(
                         text = "Completed",
