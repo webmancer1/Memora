@@ -58,7 +58,7 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Logo / Title Section
+        
         Text(
             text = "Memora",
             style = MaterialTheme.typography.displayMedium,
