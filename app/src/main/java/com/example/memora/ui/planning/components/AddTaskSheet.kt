@@ -26,12 +26,12 @@ fun AddTaskSheet(
         var title by remember { mutableStateOf("") }
         var description by remember { mutableStateOf("") }
         
-        // Priority
-        var selectedPriority by remember { mutableStateOf(1) } // Default Medium
+        
+        var selectedPriority by remember { mutableStateOf(1) } 
         val priorities = listOf("Low", "Medium", "High")
         var priorityExpanded by remember { mutableStateOf(false) }
 
-        // Category
+        
         var selectedCategory by remember { mutableStateOf(categories.firstOrNull()) }
         var categoryExpanded by remember { mutableStateOf(false) }
 
@@ -64,7 +64,7 @@ fun AddTaskSheet(
             )
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                // Category Dropdown
+                
                 ExposedDropdownMenuBox(
                     expanded = categoryExpanded,
                     onExpandedChange = { categoryExpanded = !categoryExpanded },
@@ -94,7 +94,7 @@ fun AddTaskSheet(
                     }
                 }
 
-                // Priority Dropdown
+                
                 ExposedDropdownMenuBox(
                     expanded = priorityExpanded,
                     onExpandedChange = { priorityExpanded = !priorityExpanded },
@@ -138,8 +138,8 @@ fun AddTaskSheet(
                 Button(
                     onClick = {
                         selectedCategory?.let { category ->
-                            // For simplicity, passing null for dueDate right now
-                            // Can be added later
+                            
+                            
                             onSaveTask(title, description, category.id, selectedPriority, null)
                             onDismissRequest()
                         }
