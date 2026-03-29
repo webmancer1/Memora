@@ -46,7 +46,7 @@ fun TaskCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.Top
             ) {
-                // Task Checkbox & Title
+                
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.Top,
@@ -79,13 +79,13 @@ fun TaskCard(
                 }
             }
 
-            // Badges Row (Category, Priority, Date)
+            
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Category Badge
+                
                 if (category != null) {
                     val catColor = try {
                         Color(android.graphics.Color.parseColor(category.colorHex))
@@ -99,11 +99,11 @@ fun TaskCard(
                     )
                 }
 
-                // Priority Badge
+                
                 val (priorityText, priorityColor) = when (task.priority) {
-                    2 -> "High" to Color(0xFFE57373) // Red
-                    1 -> "Medium" to Color(0xFFFFB74D) // Orange
-                    else -> "Low" to Color(0xFF81C784) // Green
+                    2 -> "High" to Color(0xFFE57373) 
+                    1 -> "Medium" to Color(0xFFFFB74D) 
+                    else -> "Low" to Color(0xFF81C784) 
                 }
                 BadgeItem(
                     text = priorityText,
@@ -113,7 +113,7 @@ fun TaskCard(
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                // Due Date
+                
                 if (task.dueDate != null) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
