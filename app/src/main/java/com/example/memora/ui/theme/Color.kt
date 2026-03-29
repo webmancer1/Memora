@@ -8,9 +8,9 @@ val CharcoalGray = Color(0xFF4A4E69)
 val SoftSilver = Color(0xFF8D99AE)
 val DoveGray = Color(0xFFEDF2F4)
 
-val ElegantGold = Color(0xFFC5A880) // Subtle, respectful accent
-val MutedSage = Color(0xFF7B8B79)   // Calming nature accent
-val SoftLilac = Color(0xFF9E8E9E)   // Delicate memorial accent
+val ElegantGold = Color(0xFFC5A880) 
+val MutedSage = Color(0xFF7B8B79)   
+val SoftLilac = Color(0xFF9E8E9E)   
 
 val AppBackgroundLight = Color(0xFFF7F7F8)
 val AppSurfaceLight = Color.White
